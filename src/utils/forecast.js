@@ -15,14 +15,16 @@ const forecast = (lon, lat, callback) => {
     } else {
       callback(
         undefined,
-        body.current.weather_descriptions[0] +
-          ". It is currently " +
+        body.current.weather_descriptions[0] +". "+
+        "<img src='"+body.current.weather_icons +"' title='icon'/> <br>"+
+          " It is currently " +
           body.current.temperature +
           " degrees. It feels like " +
           body.current.feelslike +
           " degrees out. There is a " +
           body.current.precip +
-          "% chance of rain."
+          "% chance of rain. Humidity is " +
+          body.current.humidity+" and Visibility index is "+body.current.visibility
       );
     }
   });
